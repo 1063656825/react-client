@@ -1,8 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Input, Space, Select, Button } from "antd";
+import LoginAvatar from './Login/login-avatar';
 
-export default function NavHeader() {
+type NavHeaderProps = {
+  loginHandler: () => void;
+}
+
+export default function NavHeader(props: NavHeaderProps) {
   return (
     <div className="headerContainer">
       {/* 头部logo */}
@@ -18,7 +23,7 @@ export default function NavHeader() {
         <NavLink to="/books" className="navgation">
           书籍
         </NavLink>
-        <NavLink to="/interview" className="navgation">
+        <NavLink to="/interviews" className="navgation">
           面试题
         </NavLink>
         <a
@@ -52,9 +57,7 @@ export default function NavHeader() {
 
       {/* 登录按钮 */}
       <div className="loginBtnContainer">
-        <Button type="primary" size="large">
-          注册/登录
-        </Button>
+        <LoginAvatar loginHandler={props.loginHandler} />
       </div>
     </div>
   );
