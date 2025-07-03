@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LoginInfo } from "../types/user";
+import { UserInfo } from "../types/user";
 
 const userSlice = createSlice({
   name: "user",
   initialState: {
     isLogin: false,
-    userInfo: {} as LoginInfo,
+    userInfo: {} as UserInfo,
   },
   reducers: {
     initUserInfo: (state, {payload}) => {
@@ -13,7 +13,7 @@ const userSlice = createSlice({
     },
     logout: (state) => {
       state.isLogin = false;
-      state.userInfo = {} as LoginInfo;
+      state.userInfo = {} as UserInfo;
     },
     login: (state, {payload}) => {
       state.isLogin = true;
@@ -23,3 +23,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+export const { initUserInfo, logout, login } = userSlice.actions;
