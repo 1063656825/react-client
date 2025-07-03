@@ -1,5 +1,5 @@
 import request from "./request";
-import { RegisterInfo, ResponseData, UserInfoResponse } from "../types/user";
+import { LoginInfo, RegisterInfo, ResponseData, UserInfoResponse } from "../types/user";
 
 /**
  * 用户相关的 api 都放在这里
@@ -32,3 +32,35 @@ export function userIsExist(loginId: string): Promise<any> {
       method: "POST",
     });
   }
+
+  /**
+ * 用户登录
+ */
+export function userLogin(loginInfo: LoginInfo): Promise<any> {
+    return request({
+      url: "/api/user/login",
+      method: "POST",
+      data: loginInfo,
+    });
+  }
+  
+  /**
+   * 根据 id 来查找用户
+   */
+  export function getUserById(id: string): Promise<any> {
+    return request({
+      url: `/api/user/${id}`,
+      method: "GET",
+    });
+  }
+  
+  /**
+   * 恢复登录状态
+   */
+  export function getInfo(): Promise<any> {
+    return request({
+      url: "/api/user/whoami",
+      method: "GET",
+    });
+  }
+  
