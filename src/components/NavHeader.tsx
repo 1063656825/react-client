@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Input, Space, Select, Button } from "antd";
+import { Input, Space, Select } from "antd";
 import LoginAvatar from './Login/login-avatar';
 
 type NavHeaderProps = {
